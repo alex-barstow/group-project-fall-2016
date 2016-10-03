@@ -21,5 +21,4 @@ ActiveRecord::Schema.define(version: 20161003201337) do
     t.integer "age"
     t.text    "description"
   end
-
 end
