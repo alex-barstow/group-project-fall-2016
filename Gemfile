@@ -36,6 +36,9 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capybara'
   gem 'pry-rails'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'valid_attribute'
 end
 
 group :development do

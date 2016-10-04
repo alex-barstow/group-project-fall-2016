@@ -11,12 +11,13 @@ feature 'user signs up', %Q{
   # * I must be able to set and verify a password
   # * I must be able to create a username connected to the account
 
-
   scenario 'user specifies valid and required information' do
     visit root_path
     click_link 'Sign Up'
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Username', with: 'username'
+    fill_in 'First name', with: 'firstname'
+    fill_in 'Last name', with: 'lastname'
     fill_in 'user_password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     click_button 'Sign Up'
@@ -31,6 +32,8 @@ feature 'user signs up', %Q{
     expect(page).to have_content("Email can't be blank")
     expect(page).to have_content("Password can't be blank")
     expect(page).to have_content("User name can't be blank")
+    expect(page).to have_content("First name can't be blank")
+    expect(page).to have_content("Last name can't be blank")
     expect(page).to have_content('User name is too short')
     expect(page).to_not have_content('Sign Out')
   end
@@ -40,6 +43,8 @@ feature 'user signs up', %Q{
     click_link 'Sign Up'
     fill_in 'Email', with: 'user@example.com'
     fill_in 'Username', with: 'username'
+    fill_in 'First name', with: 'firstname'
+    fill_in 'Last name', with: 'lastname'
     fill_in 'user_password', with: 'password'
     fill_in 'Password confirmation', with: 'password1'
     click_button 'Sign Up'
