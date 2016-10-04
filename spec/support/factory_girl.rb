@@ -14,6 +14,6 @@ FactoryGirl.define do
     sequence(:name) { |n| "Vermont Sharp White Cheddar #{n}" }
     sequence(:description) { |n| "this is my #{n}th favorite cheese" }
     sequence(:age) { |n| n }
-    sequence(:user_id) { |n| n }
+    user FactoryGirl.create(:user)
   end
 end

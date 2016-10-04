@@ -12,9 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20161004161730) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cheeses", force: :cascade do |t|
+    t.string  "name",        null: false
+    t.integer "user_id",     null: false
+    t.integer "age"
+    t.text    "description"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -37,10 +43,4 @@ ActiveRecord::Schema.define(version: 20161004161730) do
     t.index ["user_name"], name: "index_users_on_user_name", unique: true, using: :btree
   end
 
-  create_table "cheeses", force: :cascade do |t|
-    t.string  "name",        null: false
-    t.integer "user_id",     null: false
-    t.integer "age"
-    t.text    "description"
-  end
 end
