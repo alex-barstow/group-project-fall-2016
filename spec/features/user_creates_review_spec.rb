@@ -9,29 +9,25 @@ feature 'user creates review', %Q{
 
   let!(:user) { FactoryGirl.create(:user) }
   let!(:cheese) { FactoryGirl.create(:cheese) }
+  let!(:review) { FactoryGirl.create(:review) }
 
-  scenario 'authenticated user sees button to create a new review' do
+  scenario 'authenticated user sees form to create a new review' do
     visit cheese_path(cheese)
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Sign In'
-    expect(page).to have_button('Add Review')
+    expect(page).to have_content('Add Review')
+    expect(page).to have_content('Add Rating')
+    expect(page).to have_content('Add Comment')
+
   end
 
-  scenario 'unauthenticated user does not see button to create a new review' do
+  scenario 'unauthenticated user does not see form to create a new review' do
     visit cheese_path(cheese)
-    expect(page).to_not have_button('Add Review')
-  end
-
-  scenario 'authenticated user creates review by clicking button' do
-    visit cheese_path(cheese)
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_button 'Sign In'
-    click_button 'Add Review'
-    expect(current_path).to eq(new_cheese_review_path(cheese))
+    expect(page).to_not have_content('Add Review')
+    expect(page).to_not have_content('Add Rating')
+    expect(page).to_not have_content('Add Comment')
   end
 
   scenario 'authenticated user adds rating' do
@@ -40,9 +36,7 @@ feature 'user creates review', %Q{
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Sign In'
-    click_button 'Add Review'
-    fill_in 'Rating', with: 5
-
+    fill_in 'Rating', with: review.rating
   end
 
   scenario 'authenticated user adds review description' do
@@ -51,7 +45,19 @@ feature 'user creates review', %Q{
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Sign In'
-    click_button 'Add Review'
-    fill_in 'Comment', with: 'you should buy this cheese'
+    fill_in 'Add Comment', with: review.body
   end
+
+    scenario 'authenticated user submits review by clicking button' do
+      visit cheese_path(cheese)
+      click_link 'Sign In'
+      fill_in 'Email', with: user.email
+      fill_in 'user_password', with: user.password
+      click_button 'Sign In'
+      fill_in 'Add Rating', with: review.rating
+      fill_in 'Add Comment', with: review.body
+      click_button 'Add Review'
+      expect(page).to have_content(review.rating)
+      expect(page).to have_content(review.body)
+    end
 end

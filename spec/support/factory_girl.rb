@@ -16,4 +16,12 @@ FactoryGirl.define do
     sequence(:age) { |n| n }
     sequence(:user_id) { |n| n }
   end
+
+  factory :review do
+    sequence(:rating) { |n| n }
+    sequence(:body) { |n| "this cheese is #{n}" }
+
+    association :user, factory: :user
+    association :cheese, factory: :cheese
+  end
 end
