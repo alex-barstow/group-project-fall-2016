@@ -17,6 +17,7 @@ feature 'user creates review', %Q{
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Sign In'
+    visit cheese_path(cheese)
     expect(page).to have_content('Add Review')
     expect(page).to have_content('Add Rating')
     expect(page).to have_content('Add Comment')
