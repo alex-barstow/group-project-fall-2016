@@ -1,27 +1,25 @@
-require "rails_helper"
+require 'rails_helper'
 
-feature "user sees a list of reviewed cheeses" do
-
-
+feature 'user sees a list of reviewed cheeses' do
   let!(:cheese) do
     Cheese.create(
-      name: "Vermont Sharp White Cheddar",
+      name: 'Vermont Sharp White Cheddar',
       user_id: 1,
       age: 8,
-      description: "This cheese is dank!"
+      description: 'This cheese is dank!'
     )
   end
 
-  scenario "the cheese's name is visible" do
+  scenario 'the cheese's name is visible' do
     visit '/'
 
-    expect(page).to have_content("Vermont Sharp White Cheddar")
+    expect(page).to have_content('Vermont Sharp White Cheddar')
   end
 
-  scenario "the cheese's description is visible" do
+  scenario 'the cheese's description is visible' do
     visit '/'
 
-    expect(page).to have_content("This cheese is dank!")
+    expect(page).to have_content('This cheese is dank!')
   end
 
   # scenario "the cheese's average rating is visible" do
@@ -35,5 +33,4 @@ feature "user sees a list of reviewed cheeses" do
   # scenario "the cheese's are sorted by average rating, in descending order" do
   #
   # end
-
 end
