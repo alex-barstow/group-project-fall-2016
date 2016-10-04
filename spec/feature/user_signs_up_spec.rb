@@ -20,8 +20,8 @@ feature 'user signs up', %Q{
     fill_in 'user_password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
     click_button 'Sign Up'
-    expect(page).to have_content("Welcome to the World of Cheese")
-    expect(page).to have_content("Sign Out")
+    expect(page).to have_content('Welcome to the World of Cheese')
+    expect(page).to have_content('Sign Out')
   end
 
   scenario 'user specifies invalid information' do
@@ -31,8 +31,8 @@ feature 'user signs up', %Q{
     expect(page).to have_content("Email can't be blank")
     expect(page).to have_content("Password can't be blank")
     expect(page).to have_content("User name can't be blank")
-    expect(page).to have_content("User name is too short")
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to have_content('User name is too short')
+    expect(page).to_not have_content('Sign Out')
   end
 
   scenario 'user specifies incorrect password confirmation' do
@@ -44,7 +44,7 @@ feature 'user signs up', %Q{
     fill_in 'Password confirmation', with: 'password1'
     click_button 'Sign Up'
     expect(page).to have_content("Password confirmation doesn't match Password")
-    expect(page).to_not have_content("Sign Out")
+    expect(page).to_not have_content('Sign Out')
   end
 
 
