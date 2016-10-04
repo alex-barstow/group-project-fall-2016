@@ -276,3 +276,6 @@ Style/UnneededPercentQ:
 
 Metrics/AbcSize:
   Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
