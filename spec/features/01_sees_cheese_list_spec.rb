@@ -25,11 +25,11 @@ feature 'user sees a list of reviewed cheeses' do
   # scenario "the cheese's average rating is visible" do
   #
   # end
-  #
+
   # scenario "the cheese's thumbnail is visible" do
   #
   # end
-  #
+  
   # scenario "the cheese's are sorted by average rating, in descending order" do
   #
   # end
