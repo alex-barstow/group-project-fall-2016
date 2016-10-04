@@ -47,5 +47,4 @@ feature 'user signs up', %Q{
     expect(page).to_not have_content('Sign Out')
   end
 
-
 end

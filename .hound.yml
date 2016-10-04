@@ -278,4 +278,10 @@ Metrics/AbcSize:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
+ Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
