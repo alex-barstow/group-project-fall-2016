@@ -1,7 +1,7 @@
 <ul>
   <% @cheeses.each do |cheese| %>
     <li>
-      <div><%= cheese.name %></div>
+      <div> <%= link_to cheese.name, cheese %> </div>
       <div><%= cheese.description %></div>
     </li>
   <% end %>

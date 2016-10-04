@@ -4,5 +4,9 @@ class CheesesController < ApplicationController
     @cheeses = Cheese.all
   end
 
+  def show
+    @cheese = Cheese.find(params[:id])
+  end
+
 
 end

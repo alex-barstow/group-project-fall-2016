@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "user sees a list of reviewed cheeses" do
 
+
   let!(:cheese) do
     Cheese.create(
       name: "Vermont Sharp White Cheddar",
