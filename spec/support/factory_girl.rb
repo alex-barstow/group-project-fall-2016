@@ -9,4 +9,11 @@ FactoryGirl.define do
     password 'password'
     password_confirmation 'password'
   end
+
+  factory :cheese do
+    sequence(:name) { |n| "Vermont Sharp White Cheddar #{n}" }
+    sequence(:description) { |n| "this is my #{n}th favorite cheese" }
+    sequence(:age) { |n| n }
+    sequence(:user_id) { |n| n }
+  end
 end

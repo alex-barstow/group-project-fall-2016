@@ -22,5 +22,6 @@ RSpec.configure do |config|
   end
 
   config.after(:suite) do
+    DatabaseCleaner.clean
   end
 end
