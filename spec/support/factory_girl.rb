@@ -13,7 +13,7 @@ FactoryGirl.define do
   factory :cheese do
     sequence(:name) { |n| "Vermont Sharp White Cheddar #{n}" }
     sequence(:description) { |n| "this is my #{n}th favorite cheese" }
-    sequence(:age) { |n| n }
-    user FactoryGirl.create(:user)
+    sequence(:age) { |n| "#{n} days" }
+    user
   end
 end
