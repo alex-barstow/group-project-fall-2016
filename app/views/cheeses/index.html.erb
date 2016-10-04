@@ -1,8 +1,8 @@
 <ul>
   <% @cheeses.each do |cheese| %>
     <li>
-      <div> <%= link_to cheese.name, cheese %> </div>
-      <div><%= cheese.description %></div>
+      <h2> <%= link_to cheese.name, cheese %> </h2>
+      <p><%= cheese.description %></p>
     </li>
   <% end %>
 </ul>

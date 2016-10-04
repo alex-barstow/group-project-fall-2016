@@ -1,14 +1,7 @@
 require 'rails_helper'
 
 feature 'user sees a specific listed cheese' do
-  let!(:cheese) do
-    Cheese.create(
-      name: 'Vermont Sharp White Cheddar',
-      user_id: 1,
-      age: 8,
-      description: 'This cheese is dank!'
-    )
-  end
+  let!(:cheese) { FactoryGirl.create(:cheese) }
 
   scenario 'clicking link to specific cheeses show page' do
     visit '/'
@@ -23,7 +16,5 @@ feature 'user sees a specific listed cheese' do
     expect(page).to have_content(cheese.name)
     expect(page).to have_content(cheese.age)
     expect(page).to have_content(cheese.description)
-    # expect(page).to have_content(cheese.image)
-    # expect(page).to have_content(cheese.avgrating)
   end
 end
