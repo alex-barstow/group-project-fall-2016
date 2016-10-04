@@ -10,13 +10,13 @@ feature 'user sees a list of reviewed cheeses' do
     )
   end
 
-  scenario 'the cheese's name is visible' do
+  scenario 'the cheeses name is visible' do
     visit '/'
 
     expect(page).to have_content('Vermont Sharp White Cheddar')
   end
 
-  scenario 'the cheese's description is visible' do
+  scenario 'the cheeses description is visible' do
     visit '/'
 
     expect(page).to have_content('This cheese is dank!')
