@@ -5,10 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :cheeses
-
   validates :user_name, presence: true, length: { minimum: 4, maximum: 16 }
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+
+  has_many :cheeses
+  has_many :reviews
 end

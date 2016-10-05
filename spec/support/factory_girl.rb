@@ -16,4 +16,12 @@ FactoryGirl.define do
     sequence(:age) { |n| "#{n} days" }
     user
   end
+
+  factory :review do
+    rating 5
+    sequence(:body) { |n| "this cheese is #{n}" }
+
+    association :user, factory: :user
+    association :cheese, factory: :cheese
+  end
 end

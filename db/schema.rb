@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20161004194928) do
     t.text    "description"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating",    null: false
+    t.text    "body"
+    t.integer "user_id",   null: false
+    t.integer "cheese_id", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
