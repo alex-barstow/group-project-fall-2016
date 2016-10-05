@@ -33,6 +33,17 @@ feature 'user creates a cheese' do
     fill_in 'Age', with: age
     click_button 'Add Cheese'
     expect(page).to have_content("Name can't be blank")
-    expect(page).to have_content("Age is invalid")
+    expect(page).to have_content('Age is invalid')
+  end
+
+  scenario 'unauthenticated user does not see add cheese link'  do
+    visit root_path
+    expect(page).to_not have_content('New Cheese')
+  end
+
+  scenario 'unauthenticated user is redirected from add cheese page' do
+    visit new_cheese_path
+    expect(page).to_not have_current_path(new_cheese_path)
+    expect(page).to have_content('Must be signed in to add cheese.')
   end
 end

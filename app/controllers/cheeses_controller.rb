@@ -9,6 +9,10 @@ class CheesesController < ApplicationController
   end
 
   def new
+    unless current_user
+      flash[:error] = 'Must be signed in to add cheese.'
+      redirect_to root_path
+    end
     @cheese = Cheese.new
   end
 
@@ -17,13 +21,10 @@ class CheesesController < ApplicationController
     @cheese.user = current_user
     if @cheese.valid?
       @cheese.save
-      flash[:notice] = "Cheese added successfully."
+      flash[:notice] = 'Cheese added successfully.'
       redirect_to @cheese
     else
-      binding.pry
-
-      flash[:error] = @cheese.errors.empty? ? "" : @cheese.errors.full_messages.to_sentence
-
+      flash[:error] = @cheese.errors.empty? ? '' : @cheese.errors.full_messages.to_sentence
       render :new
     end
   end
