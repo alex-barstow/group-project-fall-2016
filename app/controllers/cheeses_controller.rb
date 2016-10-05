@@ -1,11 +1,11 @@
 class CheesesController < ApplicationController
+  before_action :get_cheese, only: [:show, :edit, :update]
 
   def index
     @cheeses = Cheese.all
   end
 
   def show
-    @cheese = Cheese.find(params[:id])
   end
 
   def new
@@ -35,7 +35,6 @@ class CheesesController < ApplicationController
   end
 
   def edit
-    @cheese = Cheese.find(params[:id])
     unless current_user == @cheese.user
       flash[:error] = "That's not your cheese!."
       redirect_to @cheese
@@ -43,7 +42,6 @@ class CheesesController < ApplicationController
   end
 
   def update
-    @cheese = Cheese.find(params[:id])
     @cheese.assign_attributes(cheese_params)
     if @cheese.valid?
       @cheese.save
@@ -64,5 +62,9 @@ class CheesesController < ApplicationController
 
   def cheese_params
     params.require(:cheese).permit(:name, :description, :age, :user)
+  end
+
+  def get_cheese
+    @cheese = Cheese.find(params[:id])
   end
 end
