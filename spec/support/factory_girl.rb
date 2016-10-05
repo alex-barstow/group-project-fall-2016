@@ -18,7 +18,7 @@ FactoryGirl.define do
   end
 
   factory :review do
-    sequence(:rating) { |n| n }
+    rating 5
     sequence(:body) { |n| "this cheese is #{n}" }
 
     association :user, factory: :user
