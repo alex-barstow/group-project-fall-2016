@@ -8,6 +8,6 @@ class Review < ActiveRecord::Base
   validates :cheese_id, presence: true
 
   def total_votes
-    this.votes.reduce(0) { |sum, vote| sum + vote.vote }
+    self.votes.reduce(0) { |sum, vote| sum + vote.vote }
   end
 end

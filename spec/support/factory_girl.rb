@@ -26,13 +26,13 @@ FactoryGirl.define do
   end
 
   factory :vote do
-  #   trait :upvote do
-  #     vote 1
-  #   end
-  # #   trait :downvote do
-  # #     vote -1
-  # #   end
-  #   user
-  #   review
+    trait :upvote do
+      vote 1
+    end
+    trait :downvote do
+      vote -1
+    end
+    user
+    review
   end
 end
