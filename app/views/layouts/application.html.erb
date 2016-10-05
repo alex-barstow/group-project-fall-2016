@@ -9,18 +9,35 @@
   </head>
 
   <body>
-    <nav>
-      <ul>
-        <% if user_signed_in? %>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
-        <% else %>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
-          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
-        <% end %>
+
+    <nav class="top-bar" data-topbar>
+
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">BettrCheddr</a></h1>
+        </li>
       </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <% if user_signed_in? %>
+            <li class="active">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li class="active">
+              <%= link_to 'Sign In', new_user_session_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Sign Up', new_user_registration_path %>
+            </li>
+          <% end %>
+        </ul>
+      </section>
+
     </nav>
     <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: name %>
+      <%= content_tag :div, msg, class: name + ' callout' %>
     <% end %>
     <%= yield %>
   </body>

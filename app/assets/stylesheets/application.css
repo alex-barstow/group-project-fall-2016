@@ -12,4 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require foundation_and_overrides
+
  */
+
+li {
+  list-style-type: none;
+}
+.devise-form {
+  width: 75%;
+  margin: auto;
+}
