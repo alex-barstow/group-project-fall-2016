@@ -24,11 +24,7 @@ class CheesesController < ApplicationController
       flash[:notice] = 'Cheese added successfully.'
       redirect_to @cheese
     else
-      errors = if @cheese.errors.empty?
-                 ''
-               else
-                 @cheese.errors.full_messages.to_sentence
-               end
+      errors = fetch_errors
       flash[:error] = errors
       render :new
     end
@@ -48,11 +44,7 @@ class CheesesController < ApplicationController
       flash[:notice] = 'Cheese updated successfully.'
       redirect_to @cheese
     else
-      errors = if @cheese.errors.empty?
-                 ''
-               else
-                 @cheese.errors.full_messages.to_sentence
-               end
+      errors = fetch_errors
       flash[:error] = errors
       render :edit
     end
@@ -66,5 +58,13 @@ class CheesesController < ApplicationController
 
   def fetch_cheese
     @cheese = Cheese.find(params[:id])
+  end
+
+  def fetch_errors
+    if @cheese.errors.empty?
+      ''
+    else
+      @cheese.errors.full_messages.to_sentence
+    end
   end
 end
