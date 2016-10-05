@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'user updates their cheese' do
   let!(:cheese) { FactoryGirl.create(:cheese) }
-  
+
   scenario 'user specifies valid and required information' do
     user = cheese.user
     name = 'chedder'
