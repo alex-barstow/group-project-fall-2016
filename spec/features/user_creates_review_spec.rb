@@ -77,5 +77,4 @@ feature 'user creates review', %Q{
     click_button 'Add Review'
     expect(page).to have_content("Rating can't be blank, Rating is not a number, Rating is not included in the list")
   end
-
 end
