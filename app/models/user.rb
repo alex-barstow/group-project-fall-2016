@@ -12,4 +12,5 @@ class User < ApplicationRecord
 
   has_many :cheeses
   has_many :reviews
+  has_many :votes
 end
