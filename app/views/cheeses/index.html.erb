@@ -6,3 +6,7 @@
     </li>
   <% end %>
 </ul>
+
+<% if current_user %>
+  <%= link_to "New Cheese", new_cheese_path%>
+<% end %>

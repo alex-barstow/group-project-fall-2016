@@ -1,6 +1,9 @@
 <h1><%= @cheese.name %></h1>
 <span>Age: <%= @cheese.age %></span>
 <p>Description: <%= @cheese.description %></p>
+<% if @cheese.user == current_user %>
+  <%= link_to 'Edit', edit_cheese_path(@cheese) %>
+<% end %>
 
 <div>
     <% unless @reviews.nil? %>

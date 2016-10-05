@@ -1,7 +1,9 @@
 class Cheese < ActiveRecord::Base
-  has_many :reviews
-  
   validates :name, presence: true
   validates :user_id, presence: true
-  validates :age, numericality: { only_integer: true }, allow_nil: true
+  validates :age, allow_blank: true,
+                  format: { with: /\d+ (months?|days?|years?)\z/ }
+
+  belongs_to :user
+  has_many :reviews
 end
