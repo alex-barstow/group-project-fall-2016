@@ -29,6 +29,27 @@ class CheesesController < ApplicationController
     end
   end
 
+  def edit
+    @cheese = Cheese.find(params[:id])
+    unless current_user == @cheese.user
+      flash[:error] = "That's not your cheese!."
+      redirect_to @cheese
+    end
+  end
+
+  def update
+    @cheese = Cheese.find(params[:id])
+    @cheese.assign_attributes(cheese_params)
+    if @cheese.valid?
+      @cheese.save
+      flash[:notice] = 'Cheese updated successfully.'
+      redirect_to @cheese
+    else
+      flash[:error] = @cheese.errors.empty? ? '' : @cheese.errors.full_messages.to_sentence
+      render :edit
+    end
+  end
+
   private
 
   def cheese_params

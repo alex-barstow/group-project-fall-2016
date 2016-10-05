@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations:
     'registrations' }
 
-  resources :cheeses, only: [:index, :show, :create, :new]
+  resources :cheeses
 end

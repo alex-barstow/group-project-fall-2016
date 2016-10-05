@@ -1,3 +1,7 @@
 <%= @cheese.name %>
 <%= @cheese.description %>
 <%= @cheese.age %>
+
+<% if @cheese.user == current_user %>
+  <%= link_to 'Edit', edit_cheese_path(@cheese) %>
+<% end %>

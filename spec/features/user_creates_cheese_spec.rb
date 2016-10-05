@@ -14,7 +14,7 @@ feature 'user creates a cheese' do
     fill_in 'Name', with: name
     fill_in 'Description', with: description
     fill_in 'Age', with: age
-    click_button 'Add Cheese'
+    click_button 'Submit Cheese'
     expect(page).to have_content(name)
     expect(page).to have_content(description)
     expect(page).to have_content(age)
@@ -31,7 +31,7 @@ feature 'user creates a cheese' do
     click_button 'Sign In'
     click_link 'New Cheese'
     fill_in 'Age', with: age
-    click_button 'Add Cheese'
+    click_button 'Submit Cheese'
     expect(page).to have_content("Name can't be blank")
     expect(page).to have_content('Age is invalid')
   end
