@@ -24,7 +24,8 @@ class CheesesController < ApplicationController
       flash[:notice] = 'Cheese added successfully.'
       redirect_to @cheese
     else
-      flash[:error] = @cheese.errors.empty? ? '' : @cheese.errors.full_messages.to_sentence
+      flash[:error] = @cheese.errors.empty? ? ''
+        : @cheese.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -45,7 +46,8 @@ class CheesesController < ApplicationController
       flash[:notice] = 'Cheese updated successfully.'
       redirect_to @cheese
     else
-      flash[:error] = @cheese.errors.empty? ? '' : @cheese.errors.full_messages.to_sentence
+      flash[:error] = @cheese.errors.empty? ? ''
+        : @cheese.errors.full_messages.to_sentence
       render :edit
     end
   end
