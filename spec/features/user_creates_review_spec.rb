@@ -20,7 +20,6 @@ feature 'user creates review', %Q{
     visit cheese_path(cheese)
     expect(page).to have_content('Add Rating')
     expect(page).to have_content('Add Comment')
-
   end
 
   scenario 'unauthenticated user does not see form to create a new review' do
@@ -28,26 +27,6 @@ feature 'user creates review', %Q{
     expect(page).to_not have_content('Add Review')
     expect(page).to_not have_content('Add Rating')
     expect(page).to_not have_content('Add Comment')
-  end
-
-  scenario 'authenticated user adds rating' do
-    visit cheese_path(cheese)
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_button 'Sign In'
-    visit cheese_path(cheese)
-    fill_in 'review_rating', with: review.rating
-  end
-
-  scenario 'authenticated user adds review comment' do
-    visit cheese_path(cheese)
-    click_link 'Sign In'
-    fill_in 'Email', with: user.email
-    fill_in 'user_password', with: user.password
-    click_button 'Sign In'
-    visit cheese_path(cheese)
-    fill_in 'review_body', with: review.body
   end
 
   scenario 'authenticated user submits valid review by clicking button' do
