@@ -15,6 +15,7 @@
             <% unless review.body.empty? %>
               <p>Comment: <%= review.body %></p>
             <%  end %>
+            <button type="button" name="Upvote" id="Upvote" data-review="<%= review.id %>">+</button>
           </li>
         <% end %>
       <% end %>
