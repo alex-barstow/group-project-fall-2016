@@ -20,7 +20,7 @@ class CheesesController < ApplicationController
       flash[:notice] = "Cheese added successfully."
       redirect_to @cheese
     else
-      binding.pry
+      #binding.pry
 
       flash[:error] = @cheese.errors.empty? ? "" : @cheese.errors.full_messages.to_sentence
 
