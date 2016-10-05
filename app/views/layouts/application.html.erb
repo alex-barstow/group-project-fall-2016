@@ -10,29 +10,36 @@
 
   <body>
 
-    <nav class="top-bar" data-topbar role="navigation">
+    <nav class="top-bar" data-topbar>
 
       <ul class="title-area">
         <li class="name">
-          <h1><a href="#">BetterCheddar</a></h1>
+          <h1><a href="#">BettrCheddr</a></h1>
         </li>
       </ul>
 
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
-            <li class="active"><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+            <li class="active">
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            </li>
           <% else %>
-            <li class="active"><%= link_to 'Sign In', new_user_session_path %></li>
-            <li class="active"><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <li class="active">
+              <%= link_to 'Sign In', new_user_session_path %>
+            </li>
+            <li class="active">
+              <%= link_to 'Sign Up', new_user_registration_path %>
+            </li>
           <% end %>
         </ul>
       </section>
 
     </nav>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: name %>
+    <% end %>
+    <br />
     <%= yield %>
   </body>
 </html>
