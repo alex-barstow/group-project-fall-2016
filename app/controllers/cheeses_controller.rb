@@ -1,5 +1,5 @@
 class CheesesController < ApplicationController
-  before_action :get_cheese, only: [:show, :edit, :update]
+  before_action :fetch_cheese, only: [:show, :edit, :update]
 
   def index
     @cheeses = Cheese.all
@@ -64,7 +64,7 @@ class CheesesController < ApplicationController
     params.require(:cheese).permit(:name, :description, :age, :user)
   end
 
-  def get_cheese
+  def fetch_cheese
     @cheese = Cheese.find(params[:id])
   end
 end
