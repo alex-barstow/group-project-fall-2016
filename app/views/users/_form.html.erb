@@ -1,0 +1,33 @@
+<%= form_for(@user) do |f| %>
+
+  <div class="field">
+    <%= f.label :user_name, "Username" %><br />
+    <%= f.text_field :user_name, required: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :first_name, "First Name" %><br />
+    <%= f.text_area :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name, "Last Name" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "Email" %><br />
+    <%= f.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar, "Avatar" %><br />
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit "Submit Changes" %>
+  </div>
+<% end %>

@@ -1,5 +1,13 @@
 class RegistrationsController < Devise::RegistrationsController
 
+  def index
+    @users = Users.all
+  end
+
+  def edit
+    @user = current_user
+  end
+
   private
 
   def sign_up_params

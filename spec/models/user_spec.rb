@@ -13,5 +13,4 @@ describe User do
 
   it { should have_valid(:user_name).when('example', 'username') }
   it { should_not have_valid(:user_name).when(nil, '') }
-
 end
