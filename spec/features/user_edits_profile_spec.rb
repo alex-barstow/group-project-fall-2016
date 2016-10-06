@@ -1,11 +1,10 @@
 require 'rails_helper'
 
-feature 'user can edit their username, password, and avatar', %Q{
+feature 'user can edit their username, password, and avatar', %{
   As an authenticated user
   I want to be able to edit my profile
   So that I can change my personal public and private account information
 } do
-
 
   scenario 'user can access their profile page' do
     user = FactoryGirl.create(:user)
@@ -49,7 +48,7 @@ feature 'user can edit their username, password, and avatar', %Q{
     expect(page).to have_content(email)
   end
 
-  scenario "unauthenticated user can't see edit profile on other profile pages" do
+  scenario "unauthenticated user can't see edit profile on other pages" do
     user = FactoryGirl.create(:user)
     user_2 = FactoryGirl.create(:user)
     visit new_user_session_path
@@ -60,7 +59,7 @@ feature 'user can edit their username, password, and avatar', %Q{
     expect(page).to_not have_content('Edit Profile')
   end
 
-  scenario "unauthenticated user gets redirected to sign up" do
+  scenario 'unauthenticated user gets redirected to sign up' do
     visit users_path
     expect(page).to have_content('You need to sign in or sign up before continuing.')
   end
