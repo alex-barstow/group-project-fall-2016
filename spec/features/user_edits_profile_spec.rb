@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-feature 'user can edit their username, password, and avatar', %{
+feature 'user can edit their username, password, and avatar', %(
   As an authenticated user
   I want to be able to edit my profile
   So that I can change my personal public and private account information
-} do
+) do
 
   scenario 'user can access their profile page' do
     user = FactoryGirl.create(:user)
