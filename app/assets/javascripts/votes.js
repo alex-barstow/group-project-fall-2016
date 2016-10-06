@@ -1,6 +1,6 @@
 $(() => {
-  if($('#Upvote').length) {
-    let upvoteButtons = $('#Upvote');
+  if($('.Upvote').length) {
+    let upvoteButtons = $('.Upvote');
     upvoteButtons.click(event => {
       event.preventDefault();
       let reviewId = event.target.attributes["data-review"].value;
@@ -9,10 +9,10 @@ $(() => {
         method: 'POST',
         url: `/reviews/${reviewId}/votes`,
         data: {vote: 1}
-      });
-      // .done(data => {
-      //   debugger;
-      // })
+      })
+      .done(data => {
+        $("#votes" + data.review_id).html(data.vote_total)
+      })
     })
   }
 })
