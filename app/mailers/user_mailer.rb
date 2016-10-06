@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@bettrcheddr.com'
+  default from: 'http://localhost:3000/'
 
   def welcome_email(user)
     @user = user
