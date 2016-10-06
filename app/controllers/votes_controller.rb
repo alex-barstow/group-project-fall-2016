@@ -1,7 +1,14 @@
 class VotesController < ApplicationController
   def create
     @review = Review.find(params[:review_id])
-    @vote = Vote.new(vote: params[:vote], review: @review, user: current_user)
+    @user = current_user
+    @vote = Vote.find_by user: @user, review: @review
+
+    if @vote
+      @vote.vote = params[:vote]
+    else
+      @vote = Vote.new(vote: params[:vote], review: @review, user: current_user)
+    end
 
     @vote.save if @vote.valid?
 
