@@ -41,9 +41,6 @@ feature 'user can edit their username, password, and avatar', %Q{
     fill_in 'First Name', with: first_name
     fill_in 'Last Name', with: last_name
     fill_in 'Email', with: email
-    fill_in 'Current Password', with: user.password
-    fill_in 'New Password', with: 'newpassword'
-    fill_in 'Confirm New Password', with: 'newpassword'
     expect(page).to have_content('Avatar')
     click_button 'Submit Changes'
     expect(page).to have_content(user_name)
