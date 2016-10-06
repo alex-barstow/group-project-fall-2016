@@ -20,6 +20,7 @@ class CheesesController < ApplicationController
     @cheese = Cheese.new(cheese_params)
     @cheese.user = current_user
     if @cheese.valid?
+      UserMailer.welcome_email(@cheese.user).deliver_now
       @cheese.save
       flash[:notice] = 'Cheese added successfully.'
       redirect_to @cheese
