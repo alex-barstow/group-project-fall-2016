@@ -1,0 +1,14 @@
+<ul>
+  <li>
+    <h4><%= @user.user_name %></h4>
+    <p><%= @user.first_name %></p>
+    <p><%= @user.last_name %></p>
+    <p><%= @user.email %></p>
+    <p><%= @user.avatar %></p>
+  </li>
+</ul>
+
+<% if @user == current_user %>
+  <%= link_to 'Edit Profile', edit_user_path(@user) %>
+  <%= link_to "Change Password", edit_user_registration_path %>
+<% end %>

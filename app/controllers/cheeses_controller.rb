@@ -3,7 +3,6 @@ class CheesesController < ApplicationController
 
   def index
     @cheeses = Cheese.all
-    @pic = User.last.avatar
   end
 
   def show
