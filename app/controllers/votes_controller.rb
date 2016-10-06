@@ -5,7 +5,7 @@ class VotesController < ApplicationController
     @vote = Vote.find_by user: @user, review: @review
 
     if @vote
-      @vote.vote = params[:vote]
+      @vote.vote = @vote.vote == params[:vote].to_i ? 0 : params[:vote]
     else
       @vote = Vote.new(vote: params[:vote], review: @review, user: current_user)
     end

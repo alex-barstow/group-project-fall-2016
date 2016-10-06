@@ -19,7 +19,7 @@
             <% if current_user %>
               <button type="button" name="Downvote" class="Downvote alert badge" data-review="<%= review.id %>" id="downvote<%= review.id %>">-</button>
               <span id="votes<%= review.id %>"><%= review.total_votes %></span>
-              <button type="button" name="Upvote" class="Upvote success badge" data-review="<%= review.id %>" id="upvote<%= review.id %>">+</button>
+              <a href="#" name="" class="Upvote success badge" data-review="<%= review.id %>" id="upvote<%= review.id %>">+</a>
             <% else %>
               <span id="votes<%= review.id %>"><%= review.total_votes %></span>
             <% end %>
