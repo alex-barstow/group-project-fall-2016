@@ -3,6 +3,11 @@ class CheesesController < ApplicationController
 
   def index
     @cheeses = Cheese.all
+
+    respond_to do |format|
+      format.json { render json: @cheeses }
+      format.html # index.html.erb
+    end
   end
 
   def show
