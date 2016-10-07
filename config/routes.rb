@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :cheeses do
     resources :reviews, only: [:create]
   end
+
+  resources :users
 end

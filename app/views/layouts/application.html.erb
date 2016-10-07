@@ -9,20 +9,20 @@
   </head>
 
   <body>
-
     <nav class="top-bar" data-topbar>
-
       <ul class="title-area">
         <li class="name">
           <h1><a href="<%= root_path %>">BettrCheddr</a></h1>
         </li>
       </ul>
-
       <section class="top-bar-section">
         <ul class="right">
           <% if user_signed_in? %>
             <li class="active">
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            </li>
+            <li>
+              <%= link_to 'My Profile', user_path(current_user) %>
             </li>
           <% else %>
             <li class="active">
@@ -34,7 +34,6 @@
           <% end %>
         </ul>
       </section>
-
     </nav>
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name + ' callout' %>

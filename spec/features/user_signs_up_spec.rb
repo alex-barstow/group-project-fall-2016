@@ -20,6 +20,7 @@ feature 'user signs up', %Q{
     fill_in 'Last name', with: 'lastname'
     fill_in 'user_password', with: 'password'
     fill_in 'Password confirmation', with: 'password'
+    expect(page).to have_content('Avatar')
     click_button 'Sign Up'
     expect(page).to have_content('Welcome to the World of Cheese')
     expect(page).to have_content('Sign Out')
