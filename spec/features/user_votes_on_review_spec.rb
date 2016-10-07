@@ -12,6 +12,14 @@ feature 'user votes on a review' do
   #
   # end
 
+  scenario 'javascript works', js:true, focus: true do
+    visit root_path
+    sleep(10)
+    p page.driver.console_messages
+    expect(page).to have_content('Javascript!')
+  end
+
+
   scenario 'authenticated user upvotes a review', js: true, pending: true do
     # binding.pry
     visit new_user_session_path
