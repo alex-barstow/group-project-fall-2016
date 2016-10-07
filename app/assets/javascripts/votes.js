@@ -1,40 +1,32 @@
-console.log("In votes.js")
-
-$(() => {
+$(function() {
   if($('.Upvote').length) {
-    let upvoteButtons = $('.Upvote');
-    upvoteButtons.click(event => {
+    var upvoteButtons = $('.Upvote');
+    upvoteButtons.click(function(event) {
       event.preventDefault();
-      let reviewId = event.target.attributes["data-review"].value;
+      var reviewId = event.target.attributes["data-review"].value;
 
       $.ajax({
         method: 'POST',
-        url: `/reviews/${reviewId}/votes`,
+        url: '/reviews/' + reviewId + '/votes',
         data: {vote: 1}
       })
-      .done(data => {
+      .done(function(data) {
         $("#votes" + data.review_id).html(data.vote_total)
       })
     })
-    let downvoteButtons = $('.Downvote');
-    downvoteButtons.click(event => {
+    var downvoteButtons = $('.Downvote');
+    downvoteButtons.click(function(event) {
       event.preventDefault();
-      let reviewId = event.target.attributes["data-review"].value;
+      var reviewId = event.target.attributes["data-review"].value;
 
       $.ajax({
         method: 'POST',
-        url: `/reviews/${reviewId}/votes`,
+        url: '/reviews/' + reviewId + '/votes',
         data: {vote: -1}
       })
-      .done(data => {
+      .done(function(data) {
         $("#votes" + data.review_id).html(data.vote_total)
       })
     })
   }
 })
-
-$(() => {
-  $('#js-test').html('<h1>Javascript!</h1>')
-}
-
-)
