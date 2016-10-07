@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GroupProject</title>
+    <title>BettrCheddr</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
@@ -14,7 +14,7 @@
 
       <ul class="title-area">
         <li class="name">
-          <h1><a href="#">BettrCheddr</a></h1>
+          <h1><a href="<%= root_path %>">BettrCheddr</a></h1>
         </li>
       </ul>
 
@@ -39,6 +39,8 @@
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name + ' callout' %>
     <% end %>
-    <%= yield %>
+    <div class="row">
+      <%= yield %>
+    </div>
   </body>
 </html>

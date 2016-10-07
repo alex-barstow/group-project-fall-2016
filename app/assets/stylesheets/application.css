@@ -19,7 +19,21 @@
 li {
   list-style-type: none;
 }
+
 .devise-form {
   width: 75%;
+  margin: auto;
+}
+
+.callout {
+  margin-top: 3%;
+  border-radius: 10px;
+}
+
+.cheeselist {
+  margin: auto;
+}
+
+.reviewlist {
   margin: auto;
 }
