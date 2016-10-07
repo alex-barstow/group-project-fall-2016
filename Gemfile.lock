@@ -54,7 +54,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    cliver (0.3.2)
+    capybara-webkit (1.10.1)
+      capybara (>= 2.3.0, < 2.8.0)
+      json
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -121,10 +123,6 @@ GEM
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
     pg (0.19.0)
-    poltergeist (1.10.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -242,6 +240,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  capybara-webkit (>= 1.10.1)
   coffee-rails (~> 4.2)
   coveralls
   database_cleaner
@@ -253,7 +252,6 @@ DEPENDENCIES
   launchy
   listen (~> 3.0.5)
   pg
-  poltergeist
   pry-rails
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)

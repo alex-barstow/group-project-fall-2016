@@ -1,3 +1,5 @@
+console.log("In votes.js")
+
 $(() => {
   if($('.Upvote').length) {
     let upvoteButtons = $('.Upvote');
@@ -30,3 +32,9 @@ $(() => {
     })
   }
 })
+
+$(() => {
+  $('#js-test').html('<h1>Javascript!</h1>')
+}
+
+)
