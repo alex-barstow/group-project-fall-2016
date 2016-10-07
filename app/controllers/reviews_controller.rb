@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
 
     if @review.save
       redirect_to cheese_path(@cheese)
+      UserMailer.notification_email(@cheese.user).deliver_now
     else
       if @review.errors
         flash[:notice] = @review.errors.full_messages.join(", ")
