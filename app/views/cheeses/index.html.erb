@@ -1,3 +1,9 @@
+<div class="new-cheese">
+  <% if current_user %>
+    <%= link_to "New Cheese", new_cheese_path%>
+  <% end %>
+</div>
+
 <ul class="cheeselist column small-12">
   <% @cheeses.each do |cheese| %>
     <li class="callout">
@@ -6,7 +12,3 @@
     </li>
   <% end %>
 </ul>
-
-<% if current_user %>
-  <%= link_to "New Cheese", new_cheese_path%>
-<% end %>

@@ -33,7 +33,16 @@ li {
 .cheeselist {
   margin: auto;
 }
+.main {
+  width: 75%;
+}
 
 .reviewlist {
   margin: auto;
+}
+
+.new-cheese {
+  position: absolute;
+  padding-top: 3px;
+  padding-left: 65%; 
 }
