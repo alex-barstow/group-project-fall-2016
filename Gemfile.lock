@@ -55,17 +55,13 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-<<<<<<< 3ef14cb825ea715d820e843758254bcc5e1855f5
+    capybara-webkit (1.10.1)
+      capybara (>= 2.3.0, < 2.8.0)
+      json
     carrierwave (1.0.0.beta)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-    cliver (0.3.2)
-=======
-    capybara-webkit (1.10.1)
-      capybara (>= 2.3.0, < 2.8.0)
-      json
->>>>>>> still es6
     coderay (1.1.1)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
@@ -390,11 +386,8 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
-<<<<<<< 3ef14cb825ea715d820e843758254bcc5e1855f5
-  carrierwave (>= 1.0.0.beta, < 2.0)
-=======
   capybara-webkit (>= 1.10.1)
->>>>>>> still es6
+  carrierwave (>= 1.0.0.beta, < 2.0)
   coffee-rails (~> 4.2)
   coveralls
   database_cleaner
