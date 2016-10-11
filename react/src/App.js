@@ -8,7 +8,7 @@ class App extends React.Component {
       cheeses: []
     };
     this.getCheeses = this.getCheeses.bind(this)
-    // this.timedRefresh = this.timedRefresh.bind(this)
+    this.timedRefresh = this.timedRefresh.bind(this)
   }
   getCheeses() {
     $.ajax({
@@ -21,13 +21,13 @@ class App extends React.Component {
     });
   };
 
-  // timedRefresh() {
-  //   this.anythingCanBeHere = setInterval(this.getCheeses, 5000);
-  // };
+  timedRefresh() {
+    this.refreshPage = setInterval(this.getCheeses, 5000);
+  };
 
   componentDidMount() {
     this.getCheeses();
-    // this.timesRefresh;
+    this.timedRefresh();
   }
   render() {
     return(

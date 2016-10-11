@@ -2,7 +2,14 @@ import React from 'react'
 
 const Cheese = props => {
   return (
-    <h1>good cheese much yum very sharpness</h1>
+    <li className="callout">
+      <h1>
+        <a href={`/cheeses/${props.id}`}>
+          {props.name}
+        </a>
+      </h1>
+      <p>{props.description}</p>
+    </li>
   );
 };
 
