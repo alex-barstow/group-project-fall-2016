@@ -55,7 +55,9 @@ feature 'user votes on a review' do
     click_button 'Sign In'
     click_link review.cheese.name
     click_button '-'
+    sleep 2
     click_button '+'
+    sleep 2
 
     expect(page).to have_content('- 1 +')
   end
