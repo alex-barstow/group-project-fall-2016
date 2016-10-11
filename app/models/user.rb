@@ -1,3 +1,4 @@
+
 class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
@@ -17,4 +18,8 @@ class User < ApplicationRecord
 
   has_many :cheeses
   has_many :reviews
+
+  def admin?
+    role == 'admin'
+  end
 end
