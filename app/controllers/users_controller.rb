@@ -11,9 +11,17 @@ class UsersController < ApplicationController
   end
 
   def edit
+    unless current_user.admin? || current_user == @user
+      flash[:error] = 'Insufficient access rights.'
+      redirect_to root_path
+    end
   end
 
   def update
+    if current_user.admin? || current_user == @user
+      flash[:error] = 'Insufficient access rights.'
+      redirect_to root_path
+    end
     @user.assign_attributes(user_params)
     if @user.valid?
       @user.save
@@ -38,7 +46,8 @@ class UsersController < ApplicationController
 
   def authorize_user
     unless user_signed_in? && current_user.admin?
-      raise ActionController::RoutingError.new('Not Found')
+      flash[:error] = 'Insufficient access rights'
+      redirect_to root_path
     end
   end
 end

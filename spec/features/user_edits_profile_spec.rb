@@ -63,4 +63,15 @@ feature 'user can edit their username, password, and avatar', %(
     visit users_path
     expect(page).to have_content('You need to sign in or sign up before continuing.')
   end
+
+  scenario 'unauthorized user gets redirected to root path' do
+    user = FactoryGirl.create(:user)
+    user_2 = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in 'Email', with: user.email
+    fill_in 'user_password', with: user.password
+    click_button 'Sign In'
+    visit edit_user_path(user_2)
+    expect(page).to have_content('Insufficient access rights.')
+  end
 end
