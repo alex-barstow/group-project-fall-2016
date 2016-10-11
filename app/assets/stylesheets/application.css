@@ -26,7 +26,6 @@ li {
 }
 
 .callout {
-  margin-top: 3%;
   border-radius: 10px;
 }
 
@@ -42,7 +41,9 @@ li {
 }
 
 .new-cheese {
-  position: absolute;
-  padding-top: 3px;
-  padding-left: 65%; 
+  padding-top: 15px;
+  text-align: right;
+}
+.title-text {
+  font-family: 'Alegreya', serif;
 }
