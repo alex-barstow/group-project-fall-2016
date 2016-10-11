@@ -20,9 +20,7 @@ feature 'Admin users have special privileges' do
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Sign In'
-    visit users_path
-    
-    expect(page.status_code).to eq(404)
-    #expect(response.status).to raise_error(ActionController::RoutingError)
+
+    expect(visit users_path).to have_content(ActionController::RoutingError)
   end
 end
