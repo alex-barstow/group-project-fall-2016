@@ -1,3 +1,6 @@
+ruby:
+  config_file: .rubocop.yml
+
 AllCops:
   Exclude:
     - db/schema.rb
