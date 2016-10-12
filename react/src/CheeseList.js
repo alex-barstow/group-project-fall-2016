@@ -10,6 +10,7 @@ const CheeseList = props => {
         name={cheese.name}
         age={cheese.age}
         description={cheese.description}
+        avatar={cheese.avatar}
       />
     );
   });

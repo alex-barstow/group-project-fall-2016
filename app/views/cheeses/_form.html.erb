@@ -15,6 +15,12 @@
     <%= f.text_field :age %>
   </div>
 
+  <div class="field">
+    <%= f.label :avatar, "Image" %><br />
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Submit Cheese" %>
   </div>

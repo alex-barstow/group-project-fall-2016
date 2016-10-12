@@ -13,5 +13,6 @@ feature 'user sees a list of reviewed cheeses' do
     visit root_path
 
     expect(page).to have_content(cheese.description)
+    expect(page).to have_css('.cheese-pic')
   end
 end

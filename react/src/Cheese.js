@@ -1,6 +1,10 @@
 import React from 'react'
 
 const Cheese = props => {
+
+  let imageTag = <img src={props.avatar.url} />;
+  if(props.avatar.url === null)
+    imageTag = "";
   return (
     <li className="callout">
       <h1>
@@ -9,6 +13,9 @@ const Cheese = props => {
         </a>
       </h1>
       <p>{props.description}</p>
+      <div className="cheese-pic">
+        {imageTag}
+      </div>
     </li>
   );
 };
