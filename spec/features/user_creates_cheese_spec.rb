@@ -2,6 +2,8 @@ require 'rails_helper'
 
 feature 'user creates a cheese' do
   scenario 'user specifies valid and required information' do
+    ActionMailer::Base.deliveries.clear
+
     user = FactoryGirl.create(:user)
     name = "chedder"
     description = "steve's cheese"
@@ -19,6 +21,7 @@ feature 'user creates a cheese' do
     expect(page).to have_content(description)
     expect(page).to have_content(age)
     expect(page).to have_content('Cheese added successfully.')
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario 'user does not specify valid and required information' do

@@ -46,6 +46,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'valid_attribute'
+  gem 'mailcatcher'
 end
 
 group :development do
