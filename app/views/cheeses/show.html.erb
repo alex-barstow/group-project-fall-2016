@@ -20,11 +20,11 @@
               <button type="button" name="Downvote" class="Downvote alert badge" data-review="<%= review.id %>" id="downvote<%= review.id %>">-</button>
               <span id="votes<%= review.id %>"><%= review.total_votes %></span>
               <button type="button" name="Upvote" class="Upvote success badge" data-review="<%= review.id %>" id="upvote<%= review.id %>">+</button>
+              <% if current_user.admin? || current_user == review.user %>
+                <%= link_to 'X', review_path(review), method: :delete  %>
+              <% end %>
             <% else %>
               <span id="votes<%= review.id %>"><%= review.total_votes %></span>
-            <% end %>
-            <% if current_user.admin? %>
-              <%= link_to 'X', review_path(review), method: :delete  %>
             <% end %>
           </p>
         </li>
