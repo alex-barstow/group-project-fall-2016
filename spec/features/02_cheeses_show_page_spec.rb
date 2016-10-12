@@ -17,4 +17,10 @@ feature 'user sees a specific listed cheese' do
     expect(page).to have_content(cheese.age)
     expect(page).to have_content(cheese.description)
   end
+
+  scenario 'Looking at specific cheeses show page with cheese image' do
+    visit cheese_path(cheese)
+
+    expect(page).to have_css('.cheese-pic-show')
+  end
 end

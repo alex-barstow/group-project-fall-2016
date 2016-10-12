@@ -14,6 +14,7 @@ FactoryGirl.define do
   factory :cheese do
     sequence(:name) { |n| "Vermont Sharp White Cheddar #{n}" }
     sequence(:description) { |n| "this is my #{n}th favorite cheese" }
+    avatar 'http://static1.squarespace.com/static/54c95d06e4b04d8d26f97dde/t/570d4048e707ebd28d303f32/1460486224633/'
     age '5 days'
     user
   end
