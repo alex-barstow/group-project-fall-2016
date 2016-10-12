@@ -23,4 +23,5 @@
 /coverage
 .DS_Store
 s3.rb
-node_modules
+/node_modules/*
+/db/schema.rb
