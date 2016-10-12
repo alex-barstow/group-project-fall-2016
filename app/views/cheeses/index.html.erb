@@ -1,14 +1,5 @@
-<ul>
-  <% @cheeses.each do |cheese| %>
-    <li class="callout">
-      <h2><%= link_to cheese.name, cheese %></h2>
-      <p><%= cheese.description %></p>
-      <div class='cheese-pic'>
-        <%= image_tag (cheese.avatar) %>
-      </div>
-    </li>
-  <% end %>
-</ul>
+<div id="app">
+</div>
 
 <% if current_user %>
   <%= link_to "New Cheese", new_cheese_path %>

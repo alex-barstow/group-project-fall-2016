@@ -3,8 +3,8 @@ require 'rails_helper'
 feature 'user sees a specific listed cheese' do
   let!(:cheese) { FactoryGirl.create(:cheese) }
 
-  scenario 'clicking link to specific cheeses show page' do
-    visit '/'
+  scenario 'clicking link to specific cheeses show page', js: true do
+    visit root_path
     click_link(cheese.name)
 
     expect(current_path).to eq(cheese_path(cheese))
