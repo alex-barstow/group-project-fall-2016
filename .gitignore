@@ -23,6 +23,7 @@
 /coverage
 .DS_Store
 s3.rb
-/node_modules
 /app/assets/javascripts/bundle.js
 /react/coverage
+node_modules/
+/db/schema.rb

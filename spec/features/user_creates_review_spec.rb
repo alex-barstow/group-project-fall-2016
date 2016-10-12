@@ -30,6 +30,7 @@ feature 'user creates review', %Q{
   end
 
   scenario 'authenticated user submits valid review by clicking button' do
+    ActionMailer::Base.deliveries.clear
     visit cheese_path(cheese)
     click_link 'Sign In'
     fill_in 'Email', with: user.email
@@ -41,6 +42,7 @@ feature 'user creates review', %Q{
     click_button 'Add Review'
     expect(page).to have_content(review.rating)
     expect(page).to have_content(review.body)
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario 'authenticated user submits valid review with only a rating by clicking button' do
