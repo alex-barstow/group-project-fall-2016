@@ -43,7 +43,8 @@ feature 'Admin users have special privileges' do
     click_button 'Sign In'
     visit cheese_path(review.cheese)
     review_body = review.body
-    click_button 'X'
+    click_link 'X'
+    expect(page).to have_content('Review deleted')
     expect(page).to_not have_content(review_body)
   end
 end

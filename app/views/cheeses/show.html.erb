@@ -24,7 +24,7 @@
               <span id="votes<%= review.id %>"><%= review.total_votes %></span>
             <% end %>
             <% if current_user.admin? %>
-              <button type="button" name="Delete" class = "Delete" data-review="<%= review.id %>" id="delete<%= review.id %>">X</button>
+              <%= link_to 'X', review_path(review), method: :delete  %>
             <% end %>
           </p>
         </li>

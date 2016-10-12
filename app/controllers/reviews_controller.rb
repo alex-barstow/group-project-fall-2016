@@ -9,12 +9,24 @@ class ReviewsController < ApplicationController
       redirect_to cheese_path(@cheese)
     else
       if @review.errors
-        flash[:notice] = @review.errors.full_messages.join(", ")
+        flash[:error] = @review.errors.full_messages.join(", ")
       end
       render :'cheeses/show'
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @cheese = @review.cheese
+    unless current_user.admin? || current_user == @user
+      flash[:error] = 'Insufficient access rights.'
+      redirect_to root_path
+    else
+      @review.destroy
+      flash[:notice] = 'Review deleted'
+      redirect_to @cheese
+    end
+  end
 
   private
 
