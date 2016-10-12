@@ -54,7 +54,7 @@ class CheesesController < ApplicationController
 
   def cheese_params
     params.require(:cheese).permit(:name, :description, :age, :user, :avatar,
-                            :avatar_cache)
+                                   :avatar_cache)
   end
 
   def fetch_cheese
