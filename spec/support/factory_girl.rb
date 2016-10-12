@@ -14,6 +14,7 @@ FactoryGirl.define do
   factory :cheese do
     sequence(:name) { |n| "Vermont Sharp White Cheddar #{n}" }
     sequence(:description) { |n| "this is my #{n}th favorite cheese" }
+    avatar 'apple.png'
     age '5 days'
     user
   end
@@ -25,7 +26,6 @@ FactoryGirl.define do
     user
     cheese
   end
-
   factory :vote do
     trait :upvote do
       vote 1
