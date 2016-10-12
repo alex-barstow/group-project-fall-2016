@@ -20,7 +20,6 @@ feature 'user sees a specific listed cheese' do
 
   scenario 'Looking at specific cheeses show page with cheese image' do
     visit cheese_path(cheese)
-
-    expect(page).to have_css('.cheese-pic-show')
+    expect(page).to have_xpath("//img")
   end
 end
