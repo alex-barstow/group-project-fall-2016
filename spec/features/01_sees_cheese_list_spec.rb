@@ -5,8 +5,6 @@ feature 'user sees a list of reviewed cheeses' do
 
   scenario 'the cheeses name is visible', js: true do
     visit root_path
-    sleep 10
-    p page.driver.console_messages
     expect(page).to have_content(cheese.name)
   end
 
