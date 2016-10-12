@@ -3,6 +3,7 @@ require 'rails_helper'
 feature 'Admin users have special privileges' do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:admin) { FactoryGirl.create(:user, role: 'admin') }
+  let!(:review) { FactoryGirl.create(:review) }
 
   scenario 'Admin sees full user list' do
     visit new_user_session_path
@@ -35,6 +36,6 @@ feature 'Admin users have special privileges' do
     expect(page).to have_current_path(user_path(user))
   end
 
-  scenario 'Admin visits user show page from users list' do
+  scenario 'Admin deletes a review' do
   end
 end
