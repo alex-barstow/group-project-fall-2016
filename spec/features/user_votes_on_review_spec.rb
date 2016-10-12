@@ -11,7 +11,7 @@ feature 'user votes on a review' do
     click_button 'Sign In'
     visit cheese_path(review.cheese)
     click_button '+'
-
+    sleep 3
     expect(page).to have_content('- 1 +')
   end
 

@@ -3,7 +3,7 @@ require 'rails_helper'
 feature 'user sees a specific listed cheese' do
   let!(:cheese) { FactoryGirl.create(:cheese) }
 
-  scenario 'clicking link to specific cheeses show page', pending: true do
+  scenario 'clicking link to specific cheeses show page', js: true do
     visit '/'
     click_link(cheese.name)
 
