@@ -1,6 +1,5 @@
 class Cheese < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
-  
   validates :name, presence: true
   validates :user_id, presence: true
   validates :age, allow_blank: true,
