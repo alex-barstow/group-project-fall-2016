@@ -18,7 +18,7 @@ feature 'user can edit their username, password, and avatar', %(
     expect(page).to have_content(user.user_name)
     expect(page).to have_content(user.first_name)
     expect(page).to have_content(user.last_name)
-    expect(page).to have_content(user.avatar) #fix
+    expect(page).to have_content(user.avatar)
     expect(page).to have_content(user.email)
   end
 
