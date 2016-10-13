@@ -12,18 +12,33 @@ feature 'user creates review', %Q{
   let!(:review) { FactoryGirl.create(:review) }
 
   scenario 'authenticated user sees form to create a new review' do
-    visit cheese_path(cheese)
+    visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Sign In'
     visit cheese_path(cheese)
+
     expect(page).to have_content('Add Rating')
     expect(page).to have_content('Add Comment')
   end
 
+  scenario %(authenticated user doesn't see form to create a review for cheeses
+             they've already reviewed) do
+    visit root_path
+    click_link 'Sign In'
+    fill_in 'Email', with: review.user.email
+    fill_in 'user_password', with: review.user.password
+    click_button 'Sign In'
+    visit cheese_path(review.cheese)
+
+    expect(page).to_not have_content('Add Rating')
+    expect(page).to_not have_content('Add Comment')
+  end
+
   scenario 'unauthenticated user does not see form to create a new review' do
     visit cheese_path(cheese)
+
     expect(page).to_not have_content('Add Review')
     expect(page).to_not have_content('Add Rating')
     expect(page).to_not have_content('Add Comment')
@@ -31,7 +46,7 @@ feature 'user creates review', %Q{
 
   scenario 'authenticated user submits valid review by clicking button' do
     ActionMailer::Base.deliveries.clear
-    visit cheese_path(cheese)
+    visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
@@ -40,13 +55,15 @@ feature 'user creates review', %Q{
     fill_in 'review_rating', with: review.rating
     fill_in 'review_body', with: review.body
     click_button 'Add Review'
+
     expect(page).to have_content(review.rating)
     expect(page).to have_content(review.body)
     expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
-  scenario 'authenticated user submits valid review with only a rating by clicking button' do
-    visit cheese_path(cheese)
+  scenario %(authenticated user submits valid review with only a rating by
+             clicking button) do
+    visit root_path
     click_link 'Sign In'
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
@@ -54,6 +71,7 @@ feature 'user creates review', %Q{
     visit cheese_path(cheese)
     fill_in 'review_rating', with: review.rating
     click_button 'Add Review'
+
     expect(page).to have_content(review.rating)
   end
 
@@ -66,7 +84,10 @@ feature 'user creates review', %Q{
     visit cheese_path(cheese)
     fill_in 'review_body', with: review.body
     click_button 'Add Review'
-    expect(page).to have_content("Rating can't be blank, Rating is not a number, Rating is not included in the list")
+
+    expect(page).to have_content("Rating can't be blank")
+    expect(page).to have_content("Rating is not a number")
+    expect(page).to have_content("Rating is not included in the list")
   end
 
   scenario 'authenticated user submits empty invalid review by clicking button' do
@@ -77,6 +98,9 @@ feature 'user creates review', %Q{
     click_button 'Sign In'
     visit cheese_path(cheese)
     click_button 'Add Review'
-    expect(page).to have_content("Rating can't be blank, Rating is not a number, Rating is not included in the list")
+
+    expect(page).to have_content("Rating can't be blank")
+    expect(page).to have_content("Rating is not a number")
+    expect(page).to have_content("Rating is not included in the list")
   end
 end
