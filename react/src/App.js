@@ -27,7 +27,7 @@ class App extends React.Component {
       })
       .done(data => {
         let searchCheeses = data.cheeses.filter(cheese =>
-          cheese.name.includes(searchString)
+          cheese.name.includes(searchString);
         )
 
         app.stopInterval = clearInterval(app.refreshPage);
