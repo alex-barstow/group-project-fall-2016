@@ -12,3 +12,15 @@
   <%= link_to 'Edit Profile', edit_user_path(@user) %>
   <%= link_to "Change Password", edit_user_registration_path %>
 <% end %>
+
+<h2><%= @user.user_name %>'s Cheeses</h2>
+<ul>
+  <% @user.cheeses.each do |cheese| %>
+  <li>
+    <%= link_to cheese.name, cheese %>
+    <% if @user == current_user || current_user.admin? %>
+      <%= link_to 'X', cheese, method: :delete %>
+    <% end %>
+  </li>
+  <% end %>
+</ul>

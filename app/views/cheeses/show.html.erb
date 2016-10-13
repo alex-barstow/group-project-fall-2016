@@ -1,4 +1,7 @@
 <h1><%= @cheese.name %></h1>
+<div class='cheese-pic-show'>
+  <%= image_tag (@cheese.avatar) %>
+</div>
 <span>Age: <%= @cheese.age %></span>
 <p>Description: <%= @cheese.description %></p>
 <% if @cheese.user == current_user %>

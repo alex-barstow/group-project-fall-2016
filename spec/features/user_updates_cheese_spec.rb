@@ -12,7 +12,7 @@ feature 'user updates their cheese' do
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Sign In'
-    click_link cheese.name
+    visit cheese_path(cheese)
     click_link 'Edit'
     fill_in 'Name', with: name
     fill_in 'Description', with: description
@@ -31,7 +31,7 @@ feature 'user updates their cheese' do
     fill_in 'Email', with: cheese.user.email
     fill_in 'user_password', with: cheese.user.password
     click_button 'Sign In'
-    click_link cheese.name
+    visit cheese_path(cheese)
     click_link 'Edit'
     fill_in 'Name', with: ' '
     fill_in 'Age', with: age
@@ -40,7 +40,7 @@ feature 'user updates their cheese' do
     expect(page).to have_content('Age is invalid')
   end
 
-  scenario 'unauthenticated user does not see edit cheese link'  do
+  scenario 'unauthenticated user does not see edit cheese link' do
     visit cheese_path(cheese)
     expect(page).to_not have_content('Edit')
 
@@ -49,7 +49,7 @@ feature 'user updates their cheese' do
     fill_in 'Email', with: user.email
     fill_in 'user_password', with: user.password
     click_button 'Sign In'
-    click_link cheese.name
+    visit cheese_path(cheese)
     expect(page).to_not have_content('Edit')
   end
 
