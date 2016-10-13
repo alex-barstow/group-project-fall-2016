@@ -1,13 +1,18 @@
-<div class="column small-12">
-  <h1><%= @cheese.name %></h1>
-  <div class='cheese-pic-show'>
-    <%= image_tag (@cheese.avatar) %>
+<div class="column small-12 row">
+  <div class="callout row">
+    <div class="column small-8">
+      <h1><%= @cheese.name %></h1>
+      <span>Age: <%= @cheese.age %></span>
+      <p>Description: <%= @cheese.description %></p>
+      <% if @cheese.user == current_user %>
+        <%= link_to 'Edit', edit_cheese_path(@cheese) %>
+      <% end %>
+    </div>
+    <div class='cheese-pic-show column small-4'>
+      <%= image_tag (@cheese.avatar) %>
+    </div>
   </div>
-  <span>Age: <%= @cheese.age %></span>
-  <p>Description: <%= @cheese.description %></p>
-  <% if @cheese.user == current_user %>
-    <%= link_to 'Edit', edit_cheese_path(@cheese) %>
-  <% end %>
+
 
   <div class='row'>
     <% unless @reviews.nil? %>
