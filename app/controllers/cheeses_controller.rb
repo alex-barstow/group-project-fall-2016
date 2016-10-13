@@ -58,6 +58,19 @@ class CheesesController < ApplicationController
     end
   end
 
+  def destroy
+    @cheese = Cheese.find(params[:id])
+    user = @cheese.user
+    unless current_user.admin? || current_user == @cheese.user
+      flash[:error] = 'Insufficient access rights.'
+      redirect_to root_path
+    else
+      @cheese.destroy
+      flash[:notice] = 'Cheese deleted'
+      redirect_to user
+    end
+  end
+
   private
 
   def cheese_params

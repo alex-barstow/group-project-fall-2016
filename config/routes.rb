@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations:
     'registrations' }
 
-  resources :reviews, only: [] do
+  resources :reviews, only: [:destroy] do
     resources :votes, only: [:create]
   end
 
