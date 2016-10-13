@@ -22,7 +22,7 @@ describe Cheese do
     FactoryGirl.create(:review, cheese: cheese, rating: 1)
     FactoryGirl.create(:review, cheese: cheese, rating: 2)
 
-    expect(cheese.average_rating).to eq((1 + 2)/ 2.0)
+    expect(cheese.average_rating).to eq((1 + 2) / 2.0)
   end
 
   it 'has a rounded average rating for each cheese' do
@@ -31,6 +31,6 @@ describe Cheese do
     FactoryGirl.create(:review, cheese: cheese, rating: 2)
     FactoryGirl.create(:review, cheese: cheese, rating: 5)
 
-    expect(cheese.formatted_rating).to eq(((1 + 2 + 5)/ 3.0).round(1).to_s)
+    expect(cheese.formatted_rating).to eq(((1 + 2 + 5) / 3.0).round(1).to_s)
   end
 end

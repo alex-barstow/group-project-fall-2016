@@ -19,9 +19,9 @@ class Cheese < ActiveRecord::Base
   def formatted_rating
     rating = average_rating
     if rating != 0
-      "%.1f" % rating
+      '%.1f' % rating
     else
-      ""
+      ''
     end
   end
 
