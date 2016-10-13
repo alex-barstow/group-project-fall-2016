@@ -1,39 +1,41 @@
-<h1><%= @cheese.name %></h1>
-<div class='cheese-pic-show'>
-  <%= image_tag (@cheese.avatar) %>
-</div>
-<span>Age: <%= @cheese.age %></span>
-<p>Description: <%= @cheese.description %></p>
-<% if @cheese.user == current_user %>
-  <%= link_to 'Edit', edit_cheese_path(@cheese) %>
-<% end %>
+<div class="column small-12">
+  <h1><%= @cheese.name %></h1>
+  <div class='cheese-pic-show'>
+    <%= image_tag (@cheese.avatar) %>
+  </div>
+  <span>Age: <%= @cheese.age %></span>
+  <p>Description: <%= @cheese.description %></p>
+  <% if @cheese.user == current_user %>
+    <%= link_to 'Edit', edit_cheese_path(@cheese) %>
+  <% end %>
 
-<div>
-  <% unless @reviews.nil? %>
-    <h2>Reviews:</h2>
-    <ul>
-      <% @reviews.each do |review| %>
-        <li class="callout">
-          <p>Rating: <%= review.rating %></p>
-          <% unless review.body.empty? %>
-            <p>Comment: <%= review.body %></p>
-          <%  end %>
-          <p>
-            <% if current_user %>
-              <button type="button" name="Downvote" class="Downvote alert badge" data-review="<%= review.id %>" id="downvote<%= review.id %>">-</button>
-              <span id="votes<%= review.id %>"><%= review.total_votes %></span>
-              <button type="button" name="Upvote" class="Upvote success badge" data-review="<%= review.id %>" id="upvote<%= review.id %>">+</button>
-              <% if current_user.admin? || current_user == review.user %>
-                <%= link_to 'X', review_path(review), method: :delete  %>
+  <div class='row'>
+    <% unless @reviews.nil? %>
+      <h2 class="column small-12">Reviews:</h2>
+      <ul class="reviewlist column small-12">
+        <% @reviews.each do |review| %>
+          <li class="callout">
+            <p>Rating: <%= review.rating %></p>
+            <% unless review.body.empty? %>
+              <p>Comment: <%= review.body %></p>
+            <%  end %>
+            <p>
+              <% if current_user %>
+                <button type="button" name="Downvote" class="Downvote alert badge" data-review="<%= review.id %>" id="downvote<%= review.id %>">-</button>
+                <span id="votes<%= review.id %>"><%= review.total_votes %></span>
+                <button type="button" name="Upvote" class="Upvote success badge" data-review="<%= review.id %>" id="upvote<%= review.id %>">+</button>
+                <% if current_user.admin? || current_user == review.user %>
+                  <%= link_to 'X', review_path(review), method: :delete  %>
+                <% end %>
+              <% else %>
+                <span id="votes<%= review.id %>"><%= review.total_votes %></span>
               <% end %>
-            <% else %>
-              <span id="votes<%= review.id %>"><%= review.total_votes %></span>
-            <% end %>
-          </p>
-        </li>
+            </p>
+          </li>
+        <% end %>
       <% end %>
-    <% end %>
-  </ul>
+    </ul>
+  </div>
 </div>
 
 <div class="devise-form">
@@ -44,14 +46,15 @@
         <%= f.text_field :rating %>
       </div>
 
-      <div class="field">
-      <%= f.label :body, 'Add Comment' %><br />
-      <%= f.text_area :body, size: '60x12' %>
-      </div>
+        <div class="field">
+        <%= f.label :body, 'Add Comment' %><br />
+        <%= f.text_area :body, size: '60x12' %>
+        </div>
 
-      <div class="actions">
-        <%= f.submit "Add Review" %>
-      </div>
+        <div class="actions">
+          <%= f.submit "Add Review" %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>

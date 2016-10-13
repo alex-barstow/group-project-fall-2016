@@ -16,7 +16,7 @@ const CheeseList = props => {
   });
   return (
     <div>
-      <ul>
+      <ul className="cheeselist column small-12">
         {cheeses}
       </ul>
     </div>
