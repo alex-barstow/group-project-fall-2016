@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
       UserMailer.notification_email(@cheese.user).deliver_now
     else
       if @review.errors
-        flash[:error] = @review.errors.full_messages.join(", ")
+        flash[:error] = @review.errors.full_messages.join(', ')
       end
       render :'cheeses/show'
     end
