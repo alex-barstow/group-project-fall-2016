@@ -44,6 +44,7 @@ li {
 }
 .title-text {
   font-family: 'Alegreya', serif;
+
 }
 .cheese-pic {
   max-width: 150px;
@@ -56,4 +57,12 @@ div.cheese-pic-show {
   border-radius: 10px;
   overflow: hidden;
   padding: 0;
+}
+.rating {
+  font-size: 150%;
+  margin-bottom: 0;
+}
+
+.cheese-name {
+  margin-bottom: 0;
 }

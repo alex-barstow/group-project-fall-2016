@@ -16,6 +16,7 @@ const Cheese = props => {
         <p>{props.description}</p>
       </div>
       <div className="cheese-pic columns small-3">
+
         {imageTag}
       </div>
     </li>
