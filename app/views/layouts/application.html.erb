@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GroupProject</title>
+    <title>BetterCheddar</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Alegreya:900" rel="stylesheet">
   </head>
 
   <body>
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="<%= root_path %>">BettrCheddr</a></h1>
-        </li>
-      </ul>
-      <section class="top-bar-section">
-        <ul class="right">
-          <% if user_signed_in? %>
-            <li class="active">
-              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-            </li>
-            <li>
-              <%= link_to 'My Profile', user_path(current_user) %>
-            </li>
-          <% else %>
-            <li class="active">
-              <%= link_to 'Sign In', new_user_session_path %>
-            </li>
-            <li class="active">
-              <%= link_to 'Sign Up', new_user_registration_path %>
-            </li>
-          <% end %>
-        </ul>
-      </section>
+
+    <nav class="title-bar" data-topbar role="navigation">
+      <div class="title-bar-left">
+        <h1 class="title-text"><a href="<%= root_path %>">BetterCheddar</a></h1>
+      </div>
+      <div class="title-bar-right">
+        <% if user_signed_in? %>
+          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+          <%= link_to 'My Profile', user_path(current_user) %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path %>
+          <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %>
+      </div>
     </nav>
+
     <% flash.each do |name, msg| %>
       <%= content_tag :div, msg, class: name + ' callout' %>
     <% end %>
-    <%= yield %>
+    <div class="main row">
+      <%= yield %>
+    </div>
   </body>
 </html>

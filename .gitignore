@@ -27,5 +27,3 @@ s3.rb
 /react/coverage
 node_modules/
 /db/schema.rb
-node_modules/
-app/assets/javascripts/bundle.js

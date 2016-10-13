@@ -23,11 +23,26 @@ li {
   width: 75%;
   margin: auto;
 }
-
+.callout {
+  border-radius: 10px;
+}
+.cheeselist {
+  margin: auto;
+}
+.main {
+  width: 75%;
+}
+.reviewlist {
+  margin: auto;
+}
+.new-cheese {
+  padding-top: 15px;
+  text-align: right;
+}
+.title-text {
+  font-family: 'Alegreya', serif;
+}
 .cheese-pic {
   max-width: 150px;
   max-height: 150px;
-}
-
-.cheese-pic-show {
 }
