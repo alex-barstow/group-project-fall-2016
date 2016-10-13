@@ -22,4 +22,13 @@ feature 'user sees a specific listed cheese' do
     visit cheese_path(cheese)
     expect(page).to have_xpath('//img')
   end
+
+  scenario 'User sees average rating on cheese page' do
+    cheese = FactoryGirl.create(:cheese)
+    FactoryGirl.create(:review, cheese: cheese, rating: 1)
+    FactoryGirl.create(:review, cheese: cheese, rating: 2)
+
+    visit cheese_path(cheese)
+    expect(page).to have_content(cheese.formatted_rating)
+  end
 end

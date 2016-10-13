@@ -12,7 +12,7 @@ const Cheese = props => {
           {props.name}
         </a>
       </h1>
-      <p>{props.description}</p>
+      <p className="rating">{props.formatted_rating}</p>
       <div className="cheese-pic">
         {imageTag}
       </div>

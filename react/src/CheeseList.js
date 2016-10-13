@@ -9,7 +9,7 @@ const CheeseList = props => {
         id={cheese.id}
         name={cheese.name}
         age={cheese.age}
-        description={cheese.description}
+        formatted_rating={cheese.formatted_rating}
         avatar={cheese.avatar}
       />
     );
