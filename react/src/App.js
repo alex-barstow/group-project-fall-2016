@@ -14,10 +14,10 @@ class App extends React.Component {
 
   handleSearch() {
     let app = this;
-    let searchButton = $('#search-submit')
+    let searchButton = $('#search-submit');
     searchButton.click(function(event) {
       event.preventDefault();
-      let searchBar = $('#search')
+      let searchBar = $('#search');
       let searchString = searchBar.val();
 
       $.ajax({
@@ -37,8 +37,8 @@ class App extends React.Component {
         }
 
         app.setState({ cheeses: searchCheeses });
-      })
-    })
+      });
+    });
   }
 
   getCheeses() {
