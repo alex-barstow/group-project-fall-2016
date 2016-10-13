@@ -22,4 +22,8 @@
 .env
 /coverage
 .DS_Store
-/node_modules
+s3.rb
+/app/assets/javascripts/bundle.js
+/react/coverage
+node_modules/
+/db/schema.rb

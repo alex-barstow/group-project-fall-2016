@@ -3,6 +3,13 @@ class CheesesController < ApplicationController
 
   def index
     @cheeses = Cheese.all
+
+    json_response = {"cheeses": @cheeses}
+
+    respond_to do |format|
+      format.json { render json: json_response }
+      format.html { render :index }
+    end
   end
 
   def show
@@ -21,6 +28,7 @@ class CheesesController < ApplicationController
     @cheese.user = current_user
     if @cheese.valid?
       @cheese.save
+      UserMailer.welcome_email(@cheese.user).deliver_now
       flash[:notice] = 'Cheese added successfully.'
       redirect_to @cheese
     else
@@ -50,10 +58,24 @@ class CheesesController < ApplicationController
     end
   end
 
+  def destroy
+    @cheese = Cheese.find(params[:id])
+    user = @cheese.user
+    unless current_user.admin? || current_user == @cheese.user
+      flash[:error] = 'Insufficient access rights.'
+      redirect_to root_path
+    else
+      @cheese.destroy
+      flash[:notice] = 'Cheese deleted'
+      redirect_to user
+    end
+  end
+
   private
 
   def cheese_params
-    params.require(:cheese).permit(:name, :description, :age, :user)
+    params.require(:cheese).permit(:name, :description, :age, :user, :avatar,
+                                   :avatar_cache)
   end
 
   def fetch_cheese
