@@ -2,8 +2,11 @@
   <div class="callout row">
     <div class="column small-8">
       <h1><%= @cheese.name %></h1>
-      <span>Age: <%= @cheese.age %></span>
-      <p>Description: <%= @cheese.description %></p>
+      <ul>
+        <li>Age: <%= @cheese.age %></li>
+        <li>Description: <%= @cheese.description %></li>
+        <li>Average Rating: <%= @cheese.formatted_rating %></li>
+      </ul>
       <% if @cheese.user == current_user %>
         <%= link_to 'Edit', edit_cheese_path(@cheese) %>
       <% end %>
