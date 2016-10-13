@@ -7,4 +7,8 @@ class Cheese < ActiveRecord::Base
 
   belongs_to :user
   has_many :reviews
+
+  def average_rating
+    reviews.map(&:rating).reduce(:+) / reviews.length.to_f
+  end
 end
