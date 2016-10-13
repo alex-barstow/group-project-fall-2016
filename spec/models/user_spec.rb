@@ -26,8 +26,8 @@ describe User do
   it 'has a has_review_for? method to check if a cheese has been reviewed' do
     review = FactoryGirl.create(:review)
     cheese = FactoryGirl.create(:cheese)
-    
-    expect(review.user.has_review_for? review.cheese).to eq(true)
-    expect(review.user.has_review_for? cheese).to eq(false)
+
+    expect(review.user.has_review_for?(review.cheese)).to eq(true)
+    expect(review.user.has_review_for?(cheese)).to eq(false)
   end
 end

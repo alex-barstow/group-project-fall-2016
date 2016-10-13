@@ -86,8 +86,8 @@ feature 'user creates review', %Q{
     click_button 'Add Review'
 
     expect(page).to have_content("Rating can't be blank")
-    expect(page).to have_content("Rating is not a number")
-    expect(page).to have_content("Rating is not included in the list")
+    expect(page).to have_content('Rating is not a number')
+    expect(page).to have_content('Rating is not included in the list')
   end
 
   scenario 'authenticated user submits empty invalid review by clicking button' do
@@ -100,7 +100,7 @@ feature 'user creates review', %Q{
     click_button 'Add Review'
 
     expect(page).to have_content("Rating can't be blank")
-    expect(page).to have_content("Rating is not a number")
-    expect(page).to have_content("Rating is not included in the list")
+    expect(page).to have_content('Rating is not a number')
+    expect(page).to have_content('Rating is not included in the list')
   end
 end
