@@ -10,12 +10,24 @@ class ReviewsController < ApplicationController
       UserMailer.notification_email(@cheese.user).deliver_now
     else
       if @review.errors
-        flash[:notice] = @review.errors.full_messages.join(", ")
+        flash[:error] = @review.errors.full_messages.join(', ')
       end
       render :'cheeses/show'
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @cheese = @review.cheese
+    if current_user.admin? || current_user == @review.user
+      @review.destroy
+      flash[:notice] = 'Review deleted'
+      redirect_to @cheese
+    else
+      flash[:error] = 'Insufficient access rights.'
+      redirect_to root_path
+    end
+  end
 
   private
 

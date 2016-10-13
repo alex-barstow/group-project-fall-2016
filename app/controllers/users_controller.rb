@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :fetch_user
+  before_action :authorize_user, only: [:index]
+  before_action :fetch_user, except: [:index]
+  before_action :authorize_edit_user, only: [:edit, :update]
 
   def index
     @users = User.all
@@ -10,11 +12,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
-    # unless current_user == @cheese.user
-    #   flash[:error] = "That's not your cheese!."
-    #   redirect_to @cheese
-    # end
   end
 
   def update
@@ -38,5 +35,19 @@ class UsersController < ApplicationController
 
   def fetch_user
     @user = User.find(params[:id])
+  end
+
+  def authorize_user
+    unless user_signed_in? && current_user.admin?
+      flash[:error] = 'Insufficient access rights'
+      redirect_to root_path
+    end
+  end
+
+  def authorize_edit_user
+    unless current_user.admin? || current_user == @user
+      flash[:error] = 'Insufficient access rights.'
+      redirect_to root_path
+    end
   end
 end
