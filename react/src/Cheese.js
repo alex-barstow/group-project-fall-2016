@@ -6,14 +6,16 @@ const Cheese = props => {
   if(props.avatar.url === null)
     imageTag = "";
   return (
-    <li className="callout">
-      <h2 className="cheese-name">
-        <a href={`/cheeses/${props.id}`}>
-          {props.name}
-        </a>
-      </h2>
-      <p className="rating">{props.formatted_rating}</p>
-      <div className="cheese-pic">
+    <li className="callout row">
+      <div className = "columns small-9">
+        <h2>
+          <a href={`/cheeses/${props.id}`}>
+            {props.name}
+          </a>
+        </h2>
+        <p className="rating">{props.formatted_rating}</p>
+      </div>
+      <div className="cheese-pic columns small-3">
         {imageTag}
       </div>
     </li>

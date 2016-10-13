@@ -1,15 +1,20 @@
-<ul>
-  <li>
+<div class="row">
+  <div class="columns small-8">
     <h4><%= @user.user_name %></h4>
-    <p><%= @user.first_name %></p>
-    <p><%= @user.last_name %></p>
-    <p><%= @user.email %></p>
-    <p><%= @user.avatar %></p>
+    <p>Name: <%= @user.first_name %> <%= @user.last_name %></p>
+    <p>Email: <%= @user.email %></p>
+  </div>
+  <div class="columns small-4">
+    <img src="<%= @user.avatar %>" id="#profile-avatar" />
+  </div>
+</div>
+
   </li>
 </ul>
 
 <% if @user == current_user || current_user.admin? %>
   <%= link_to 'Edit Profile', edit_user_path(@user) %>
+  <span> | </span>
   <%= link_to "Change Password", edit_user_registration_path %>
 <% end %>
 

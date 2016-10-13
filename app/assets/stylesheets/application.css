@@ -25,6 +25,9 @@ li {
 }
 .callout {
   border-radius: 10px;
+  border-color: black;
+  border-style: solid;
+  border-width: 2px;
 }
 .cheeselist {
   margin: auto;
@@ -45,6 +48,14 @@ li {
 .cheese-pic {
   max-width: 150px;
   max-height: 150px;
+  padding: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+div.cheese-pic-show {
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 0;
 }
 .rating {
   font-size: 150%;
@@ -53,4 +64,10 @@ li {
 
 .cheese-name {
   margin-bottom: 0;
+}
+.cheese-details {
+  margin-top: 10px;
+}
+.search-bar {
+  margin-top: 10px;
 }

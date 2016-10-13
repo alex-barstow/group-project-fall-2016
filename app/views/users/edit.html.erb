@@ -2,6 +2,4 @@
 
 <%= render 'form' %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Do you really want to cut all ties with the cheesiest of cheeses??" }, method: :delete %></p>
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Do you really want to cut all ties with the cheesiest of cheeses??" }, method: :delete, class: "button" %></p>
