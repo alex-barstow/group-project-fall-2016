@@ -25,7 +25,7 @@ class User < ApplicationRecord
     role == 'admin'
   end
 
-  def has_review_for? cheese
-    reviews.map { |r| r.cheese }.include? cheese
+  def has_review_for?(cheese)
+    reviews.map(&:cheese).include? cheese
   end
 end
