@@ -9,7 +9,7 @@ class Cheese < ActiveRecord::Base
   has_many :reviews
 
   def average_rating
-    if reviews.length > 0
+    if !reviews.empty?
       reviews.map(&:rating).reduce(:+) / reviews.length.to_f
     else
       0
@@ -25,7 +25,7 @@ class Cheese < ActiveRecord::Base
     end
   end
 
-  def as_json(options)
+  def as_json(_options)
     super(methods: :formatted_rating)
   end
 end
