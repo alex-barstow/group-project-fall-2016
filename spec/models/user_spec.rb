@@ -22,4 +22,12 @@ describe User do
     user.save
     expect(user.admin?).to eq(true)
   end
+
+  it 'has a has_review_for? method to check if a cheese has been reviewed' do
+    review = FactoryGirl.create(:review)
+    cheese = FactoryGirl.create(:cheese)
+
+    expect(review.user.has_review_for?(review.cheese)).to eq(true)
+    expect(review.user.has_review_for?(cheese)).to eq(false)
+  end
 end

@@ -38,13 +38,13 @@
   </div>
 </div>
 
-  <div class="devise-form">
-    <% if current_user %>
-      <%= form_for [@cheese, @review] do |f| %>
-        <div class="field">
-          <%= f.label :rating, 'Add Rating' %><br />
-          <%= f.text_field :rating %>
-        </div>
+<div class="devise-form">
+  <% if current_user && !(current_user.has_review_for? @cheese) %>
+    <%= form_for [@cheese, @review] do |f| %>
+      <div class="field">
+        <%= f.label :rating, 'Add Rating' %><br />
+        <%= f.text_field :rating %>
+      </div>
 
         <div class="field">
         <%= f.label :body, 'Add Comment' %><br />
