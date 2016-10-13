@@ -3,8 +3,11 @@
   <div class='cheese-pic-show'>
     <%= image_tag (@cheese.avatar) %>
   </div>
-  <span>Age: <%= @cheese.age %></span>
-  <p>Description: <%= @cheese.description %></p>
+  <ul>
+    <li>Age: <%= @cheese.age %></li>
+    <li>Description: <%= @cheese.description %></li>
+    <li>Average Rating: <%= @cheese.formatted_rating %></li>
+  </ul>
   <% if @cheese.user == current_user %>
     <%= link_to 'Edit', edit_cheese_path(@cheese) %>
   <% end %>
