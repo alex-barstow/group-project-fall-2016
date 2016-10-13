@@ -5,14 +5,18 @@ class ReviewsController < ApplicationController
     @review.cheese = @cheese
     @review.user = current_user
 
-    if @review.save
-      redirect_to cheese_path(@cheese)
-      UserMailer.notification_email(@cheese.user).deliver_now
-    else
-      if @review.errors
-        flash[:error] = @review.errors.full_messages.join(', ')
+    unless @review.user.has_review_for? @cheese
+      if @review.save
+        redirect_to cheese_path(@cheese)
+        if @cheese.user
+          UserMailer.notification_email(@cheese.user).deliver_now
+        end
+      else
+        if @review.errors
+          flash[:error] = @review.errors.full_messages.join(', ')
+        end
+        render :'cheeses/show'
       end
-      render :'cheeses/show'
     end
   end
 

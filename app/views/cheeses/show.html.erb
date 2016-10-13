@@ -37,7 +37,7 @@
 </div>
 
 <div class="devise-form">
-  <% if current_user %>
+  <% if current_user && !(current_user.has_review_for? @cheese) %>
     <%= form_for [@cheese, @review] do |f| %>
       <div class="field">
         <%= f.label :rating, 'Add Rating' %><br />
