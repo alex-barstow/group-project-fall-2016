@@ -61,6 +61,7 @@ class App extends React.Component {
     this.timedRefresh();
     this.handleSearch();
   }
+  
   render() {
     return(
       <CheeseList data={this.state.cheeses}/>
