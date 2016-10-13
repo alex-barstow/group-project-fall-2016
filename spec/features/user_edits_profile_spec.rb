@@ -80,7 +80,8 @@ feature 'user can edit their username, password, and avatar', %(
     expect(page).to have_content('Insufficient access rights.')
   end
 
-  scenario 'authorized user should see a list of their uploaded cheeses on their profile page' do
+  scenario %(authorized user should see a list of their uploaded cheeses on
+             their profile page) do
     cheese = FactoryGirl.create(:cheese, user: user)
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -91,7 +92,8 @@ feature 'user can edit their username, password, and avatar', %(
     expect(page).to have_link(cheese.name)
   end
 
-  scenario 'authorized user should be able to delete their created cheeses from their profile page' do
+  scenario %(authorized user should be able to delete their created cheeses from
+             their profile page) do
     cheese = FactoryGirl.create(:cheese, user: user)
     visit new_user_session_path
     fill_in 'Email', with: user.email
@@ -123,7 +125,7 @@ feature 'user can edit their username, password, and avatar', %(
   end
 
   scenario "user can't delete another user's cheese" do
-    cheese = FactoryGirl.create(:cheese, user: user)
+    FactoryGirl.create(:cheese, user: user)
     user_2 = FactoryGirl.create(:user)
     visit new_user_session_path
     fill_in 'Email', with: user_2.email

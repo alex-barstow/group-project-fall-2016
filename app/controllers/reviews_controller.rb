@@ -19,13 +19,13 @@ class ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @cheese = @review.cheese
-    unless current_user.admin? || current_user == @review.user
-      flash[:error] = 'Insufficient access rights.'
-      redirect_to root_path
-    else
+    if current_user.admin? || current_user == @review.user
       @review.destroy
       flash[:notice] = 'Review deleted'
       redirect_to @cheese
+    else
+      flash[:error] = 'Insufficient access rights.'
+      redirect_to root_path
     end
   end
 

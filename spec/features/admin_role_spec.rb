@@ -11,7 +11,7 @@ feature 'Admin users have special privileges' do
     fill_in 'user_password', with: admin.password
     click_button 'Sign In'
     visit users_path
-    
+
     expect(page).to have_current_path(users_path)
     expect(page).to have_content(user.user_name)
     expect(page).to have_content(admin.user_name)
@@ -66,5 +66,4 @@ feature 'Admin users have special privileges' do
 
     expect(page).to_not have_link('X')
   end
-
 end
