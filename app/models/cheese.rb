@@ -7,4 +7,25 @@ class Cheese < ActiveRecord::Base
 
   belongs_to :user
   has_many :reviews
+
+  def average_rating
+    if !reviews.empty?
+      reviews.map(&:rating).reduce(:+) / reviews.length.to_f
+    else
+      0
+    end
+  end
+
+  def formatted_rating
+    rating = average_rating
+    if rating != 0
+      '%.1f' % rating
+    else
+      ''
+    end
+  end
+
+  def as_json(_options)
+    super(methods: :formatted_rating)
+  end
 end

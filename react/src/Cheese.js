@@ -7,12 +7,12 @@ const Cheese = props => {
     imageTag = "";
   return (
     <li className="callout">
-      <h1>
+      <h2 className="cheese-name">
         <a href={`/cheeses/${props.id}`}>
           {props.name}
         </a>
-      </h1>
-      <p>{props.description}</p>
+      </h2>
+      <p className="rating">{props.formatted_rating}</p>
       <div className="cheese-pic">
         {imageTag}
       </div>

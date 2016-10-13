@@ -8,10 +8,12 @@ feature 'user sees a list of reviewed cheeses' do
     expect(page).to have_content(cheese.name)
   end
 
-  scenario 'the cheeses description is visible', js: true do
-    visit root_path
+  scenario 'User sees average rating on cheese page', js: true do
+    cheese = FactoryGirl.create(:cheese)
+    FactoryGirl.create(:review, cheese: cheese, rating: 1)
+    FactoryGirl.create(:review, cheese: cheese, rating: 2)
 
-    expect(page).to have_content(cheese.description)
-    expect(page).to have_css('.cheese-pic')
+    visit cheeses_path
+    expect(page).to have_content(cheese.formatted_rating)
   end
 end
