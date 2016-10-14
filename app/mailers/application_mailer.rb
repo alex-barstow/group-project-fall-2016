@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'http://localhost:3000/'
+  default from: 'thebestcheddar@gmail.com'
   layout 'mailer'
 end

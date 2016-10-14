@@ -85,12 +85,12 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   ActionMailer::Base.smtp_settings = {
-  user_name: 'app57788359@heroku.com',
-  password: ENV['SENDGRID_PASSWORD'],
-  domain: 'https://bettercheddar.herokuapp.com/',
-  address: 'smtp.sendgrid.net',
-  port: 587,
-  authentication: :plain,
-  enable_starttls_auto: true
+    user_name: 'app57788359@heroku.com',
+    password: ENV['SENDGRID_PASSWORD'],
+    domain: 'https://bettercheddar.herokuapp.com/',
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 end
