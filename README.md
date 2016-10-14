@@ -11,6 +11,7 @@ In today’s fast paced world of Cheese Reviewing, BetterCheddar provides a hub 
 * George Katsaros (https://github.com/gkatsaros16/)
 * Jonathan Kamin-Allen (https://github.com/jkaminallen/)
 * Stephen MacVicar (https://github.com/jammjammjamm/)
+
 ### Features
 * Create and update their own personal account.
 * Optionally add an avatar to further personalize their account.
@@ -18,12 +19,14 @@ In today’s fast paced world of Cheese Reviewing, BetterCheddar provides a hub 
 * Add a photo to help further differentiate each different kind of cheese.
 * Upvote or downvote other users' cheese reviews to select the most helpful reviews.
 * Search for a particular type of cheddar.
+
 ### Installation
 1. In a terminal, run `git clone https://github.com/alex-barstow/group-project-fall-2016.git`.
 1. Navigate to the project's root directory with `cd group-project-fall-2016`.
 1. Run `bundle install && npm install && rake db:setup`.
 1. In two separate terminals, run `rails server` and `npm start` from the project's root directory.
 1. Visit http://localhost:3000 in your browser.
+
 ### Technologies Used
 * Backend: Rails 5.0.0.1
 * User Authentication: Devise
