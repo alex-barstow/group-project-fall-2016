@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './app';
 
 $(function() {
+  console.log("I'm react!")
   if($('#app').length) {
     ReactDOM.render(
       <App />,
